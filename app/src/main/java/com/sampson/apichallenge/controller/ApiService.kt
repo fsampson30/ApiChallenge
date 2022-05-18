@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("/events")
-    fun getAllEvents() : Observable<Events>
+    @GET("events")
+    fun getAllEvents() : Observable<List<Events>>
 }

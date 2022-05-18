@@ -4,18 +4,20 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.sampson.apichallenge.controller.EventsRepository
 import com.sampson.apichallenge.model.Events
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import java.lang.IllegalArgumentException
 
 class EventViewModel(private val eventsRepository: EventsRepository): ViewModel() {
 
-    private val allEventsLiveData = MutableLiveData<Events>()
+    private val allEventsLiveData = MutableLiveData<List<Events>>()
     private val errorLiveData = MutableLiveData<String>()
 
-    val allEvents: LiveData<Events>
+    val allEvents: LiveData<List<Events>>
     get() = allEventsLiveData
 
     val error: LiveData<String>
@@ -35,4 +37,14 @@ class EventViewModel(private val eventsRepository: EventsRepository): ViewModel(
                 Log.d("EventViewModel","error: ${error.localizedMessage}")
             }))
     }
+}
+
+class EventsViewModelFactory(private val repository: EventsRepository): ViewModelProvider.Factory{
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(EventViewModel::class.java)){
+            return EventViewModel(repository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel Class")
+    }
+
 }

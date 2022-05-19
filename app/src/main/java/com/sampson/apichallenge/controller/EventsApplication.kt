@@ -9,10 +9,12 @@ class EventsApplication : Application(){
 
     lateinit var eventsRepository: EventsRepository
 
+    private val baseUrl = "https://5f5a8f24d44d640016169133.mockapi.io/api/"
+
     override fun onCreate() {
         super.onCreate()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://5f5a8f24d44d640016169133.mockapi.io/api/")
+            .baseUrl(baseUrl)
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()

@@ -2,4 +2,5 @@
     <string name="app_name">ApiChallenge</string>
     <string name="downloading_info">Baixando informações...</string>
     <string name="event_title">Evento</string>
+    <string name="location">Localização</string>
 </resources>

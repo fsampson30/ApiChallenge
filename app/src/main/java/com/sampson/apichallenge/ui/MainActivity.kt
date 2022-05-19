@@ -1,6 +1,7 @@
 package com.sampson.apichallenge.ui
 
 import android.app.Dialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -41,7 +42,9 @@ class MainActivity : AppCompatActivity() {
 
         eventsAdapter = EventsAdapter(baseContext, object : EventsAdapter.EventClickListener{
             override fun onEventClick(event: Events) {
-                Toast.makeText(baseContext,"TEST",Toast.LENGTH_SHORT).show()
+                val intent = Intent(baseContext,EventDetailsActivity::class.java)
+                intent.putExtra("event",event)
+                startActivity(intent)
             }
         })
 

@@ -17,8 +17,10 @@ Desenvolvido em:
 Utiliza: 
 
 [![Retrofit](https://img.shields.io/badge/Retrofit-2-brightgreen)](https://square.github.io/retrofit/)
-Retrofit -> Framework que possibita a integração com APIs REST.
+Framework que possibita a integração com APIs REST.
 
-RxJava -> Bibioteca que permite a programação reativa. Facilita a função de retorno dos dados da API.
+[![RxJava](https://img.shields.io/badge/RxJava-3-red)](https://github.com/ReactiveX/RxJava)
+Bibioteca que permite a programação reativa. Facilita a função de retorno dos dados da API.
 
+[![Picasso](https://img.shields.io/badge/Picasso-2.71828-yellow)](https://square.github.io/picasso/)
 Picasso -> Biblioteca para download de imagens via endereço HTTP.

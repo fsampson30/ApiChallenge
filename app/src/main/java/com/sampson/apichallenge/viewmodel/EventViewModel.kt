@@ -10,16 +10,14 @@ import com.sampson.apichallenge.model.CheckIn
 import com.sampson.apichallenge.model.Events
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.processors.PublishProcessor
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.lang.IllegalArgumentException
-import java.util.concurrent.Flow
+
 
 class EventViewModel(private val eventsRepository: EventsRepository): ViewModel() {
 
     private val allEventsLiveData = MutableLiveData<List<Events>>()
     private val errorLiveData = MutableLiveData<String>()
-    private val post = PublishProcessor.create<Unit>()
 
     val allEvents: LiveData<List<Events>>
     get() = allEventsLiveData
@@ -45,7 +43,12 @@ class EventViewModel(private val eventsRepository: EventsRepository): ViewModel(
     fun postCheckIn(checkIn: CheckIn){
         disposable.add(eventsRepository.postCheckIn(checkIn)
             .subscribeOn(Schedulers.io())
-            .subscribe({ post.onNext(Unit)}))
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ success ->
+                Log.d("FLAVIO",success.toString())
+            } , { error ->
+                Log.d("FLAVIO",error.localizedMessage)
+            } ))
     }
 }
 

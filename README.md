@@ -1,7 +1,7 @@
 #ApiChallenge,
 
 [![Kotlin Version](https://img.shields.io/badge/kotlin-1.7.0-blue.svg?style=for-the-badge)](http://kotlinlang.org/)
-[![Gradle](https://img.shields.io/badge/gradle-7.2-blue.svg?style=for-the-badge)](https://lv.binarybabel.org/catalog/gradle/latest)
+[![Gradle](https://img.shields.io/badge/gradle-7.2-blue.svg?style=for-the-badge)](https://docs.gradle.org/7.2/release-notes.html)
 [![API](https://img.shields.io/badge/API-19%2B-blue.svg?style=for-the-badge)](https://android-arsenal.com/api?level=19)
 
 Repositório criado como Code Challenge.

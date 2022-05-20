@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.EventCheckInActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblCheckInActivityDetails"
+        android:text="@string/label_checkin"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <EditText
+        android:id="@+id/txtCheckInActivityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblCheckInActivityDetails"
+        app:layout_constraintBottom_toTopOf="@id/txtCheckInActivityEmail"
+        android:layout_margin="16dp"
+        android:hint="@string/name_hint"/>
+
+
+    <EditText
+        android:id="@+id/txtCheckInActivityEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCheckInActivityName"
+        app:layout_constraintBottom_toTopOf="@id/btnCheckInActivityConfirm"
+        android:layout_margin="16dp"
+        android:hint="@string/email_hint"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCheckInActivityConfirm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCheckInActivityEmail"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_confirm" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

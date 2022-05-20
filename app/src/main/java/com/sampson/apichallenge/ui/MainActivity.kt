@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         EventsViewModelFactory((application as EventsApplication).eventsRepository)
     }
 
-    lateinit var pbEvents: ProgressBar
     lateinit var dialog: Dialog
     lateinit var rvEvents: RecyclerView
     lateinit var eventsAdapter: EventsAdapter
@@ -34,9 +33,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        pbEvents= findViewById(R.id.pbEventsMainActivity)
-        pbEvents.visibility = View.VISIBLE
 
         rvEvents = findViewById(R.id.rvEventsMainActivity)
 
@@ -64,7 +60,6 @@ class MainActivity : AppCompatActivity() {
         eventViewModel.getAllEvents()
         eventViewModel.allEvents.observe(this){ events ->
             eventsAdapter.submitList(events)
-            pbEvents.visibility = View.GONE
             dialog.dismiss()
         }
     }

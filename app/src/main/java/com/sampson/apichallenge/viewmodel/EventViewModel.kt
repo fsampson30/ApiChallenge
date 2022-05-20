@@ -45,9 +45,9 @@ class EventViewModel(private val eventsRepository: EventsRepository): ViewModel(
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ success ->
-                Log.d("FLAVIO",success.toString())
+                Log.d("EventViewModel",success.toString())
             } , { error ->
-                Log.d("FLAVIO",error.localizedMessage)
+                Log.d("EventViewModel",error.localizedMessage)
             } ))
     }
 }

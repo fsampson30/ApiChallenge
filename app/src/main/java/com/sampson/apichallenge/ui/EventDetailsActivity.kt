@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sampson.apichallenge.R
@@ -39,7 +40,7 @@ class EventDetailsActivity : AppCompatActivity() {
 
         txtTitle.text = event?.title
         txtDescription.text = event?.description
-        "Preço R$${event?.price.toString()}".also { txtPrice.text = it }
+        txtPrice.text = getString(R.string.price) + "${event?.price.toString()}"
 
         Picasso.get().load(event?.image).fetch()
         Picasso.get().load(event?.image).placeholder(R.mipmap.ic_launcher).into(imgEvent)
@@ -47,15 +48,25 @@ class EventDetailsActivity : AppCompatActivity() {
         txtLocation.setOnClickListener {
             val intentUri = Uri.parse("geo:${event?.latitude},${event?.longitude}")
             val mapIntent = Intent(Intent.ACTION_VIEW, intentUri).apply {
-                setPackage("com.google.android.apps.maps")
+                setPackage(getString(R.string.maps_package))
             }
             startActivity(mapIntent)
         }
 
+        val register = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                val eventId = event?.id ?: 0
+                val personName = it.data?.getStringExtra("person_name") ?: ""
+                val personEmail = it.data?.getStringExtra("person_email") ?: ""
+                val checkIn = CheckIn(eventId,personName,personEmail)
+                eventViewModel.postCheckIn(checkIn)
+                Toast.makeText(this,getString(R.string.success_message),Toast.LENGTH_SHORT).show()
+            }
+        }
+
         fabCheckEvent.setOnClickListener {
-            val checkIn = event?.id?.let { it1 -> CheckIn(it1,"Flavio","a@a.com") }
-            eventViewModel.postCheckIn(checkIn!!)
-            Toast.makeText(this,"Test",Toast.LENGTH_SHORT).show()
+            val intent = Intent(baseContext, EventCheckInActivity::class.java)
+            register.launch(intent)
         }
 
     }

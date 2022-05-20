@@ -3,4 +3,14 @@
     <string name="downloading_info">Baixando informações...</string>
     <string name="event_title">Evento</string>
     <string name="location">Localização</string>
+    <string name="name_hint">Digite seu nome...</string>
+    <string name="email_hint">Digite seu email...</string>
+    <string name="button_confirm">Confirma</string>
+    <string name="label_checkin">Preencha as informações abaixo para fazer o CheckIn:</string>
+    <string name="error_message">Obrigatório</string>
+    <string name="success_message">Registro feito com sucesso!</string>
+    <string name="maps_package">com.google.android.apps.maps</string>
+    <string name="price">Preço R$ </string>
+    <string name="label_event_checkin_activity">Participar do Evento</string>
+    <string name="label_event_details_activity">Detalhes do Evento</string>
 </resources>

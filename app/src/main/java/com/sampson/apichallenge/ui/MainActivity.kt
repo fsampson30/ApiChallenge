@@ -62,5 +62,10 @@ class MainActivity : AppCompatActivity() {
             eventsAdapter.submitList(events)
             dialog.dismiss()
         }
+
+        eventViewModel.error.observe(this) { error ->
+            dialog.dismiss()
+            Toast.makeText(this, getString(R.string.download_error) + error.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 }

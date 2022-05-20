@@ -36,6 +36,7 @@ class EventViewModel(private val eventsRepository: EventsRepository): ViewModel(
                 allEventsLiveData.postValue(it)
             }, {
                 error ->
+                errorLiveData.postValue(error.localizedMessage)
                 Log.d("EventViewModel","error: ${error.localizedMessage}")
             }))
     }

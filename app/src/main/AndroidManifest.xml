@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApiChallenge">
         <activity
+            android:parentActivityName=".ui.MainActivity"
             android:name=".ui.EventDetailsActivity"
             android:exported="false" />
         <activity

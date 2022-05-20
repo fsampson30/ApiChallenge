@@ -16,6 +16,7 @@ Desenvolvido em:
 
 Utiliza: 
 
+[![Retrofit](https://img.shields.io/badge/Retrofit-2-brightgreen)](https://square.github.io/retrofit/)
 Retrofit -> Framework que possibita a integração com APIs REST.
 
 RxJava -> Bibioteca que permite a programação reativa. Facilita a função de retorno dos dados da API.

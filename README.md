@@ -23,4 +23,4 @@ Framework que possibita a integração com APIs REST.
 Bibioteca que permite a programação reativa. Facilita a função de retorno dos dados da API.
 
 [![Picasso](https://img.shields.io/badge/Picasso-2.71828-yellow)](https://square.github.io/picasso/)
-Picasso -> Biblioteca para download de imagens via endereço HTTP.
+Biblioteca para download de imagens via endereço HTTP.

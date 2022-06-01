@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imgDetailsActivity"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/picture_height"
+        android:layout_height="@dimen/picture_width"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@id/txtEventDetailsTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imgDetailsActivity"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/basic_margin_top"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@id/txtEventDetailsPrice"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtEventDetailsTitle"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/basic_margin_top"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@id/txtEventDetailsLocation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtEventDetailsPrice"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/basic_margin_top"
         android:clickable="true"
         android:text="@string/location"
         android:textColor="@color/link"
@@ -70,7 +70,7 @@
             android:id="@+id/txtEventDetailsDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="@dimen/basic_padding"
             android:text="TextView"
             android:layout_gravity="center_horizontal"/>
 

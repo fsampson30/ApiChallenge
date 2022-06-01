@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="picture_height">200dp</dimen>
+    <dimen name="picture_width">200dp</dimen>
+    <dimen name="basic_margin_top">16dp</dimen>
+    <dimen name="basic_padding">16dp</dimen>
+</resources>

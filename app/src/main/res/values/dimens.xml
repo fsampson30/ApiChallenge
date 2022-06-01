@@ -4,4 +4,8 @@
     <dimen name="picture_width">200dp</dimen>
     <dimen name="basic_margin_top">16dp</dimen>
     <dimen name="basic_padding">16dp</dimen>
+    <dimen name="zero_height">0dp</dimen>
+    <dimen name="min_padding_size">8dp</dimen>
+    <dimen name="min_width_dialog">555dp</dimen>
+    <dimen name="dialog_text_size">22sp</dimen>
 </resources>

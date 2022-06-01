@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/lblCheckInActivityDetails"
         android:text="@string/label_checkin"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/basic_margin_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -27,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lblCheckInActivityDetails"
         app:layout_constraintBottom_toTopOf="@id/txtCheckInActivityEmail"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/basic_margin_top"
         android:hint="@string/name_hint"/>
 
 
@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtCheckInActivityName"
         app:layout_constraintBottom_toTopOf="@id/btnCheckInActivityConfirm"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/basic_margin_top"
         android:hint="@string/email_hint"/>
 
     <Button
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtCheckInActivityEmail"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/basic_margin_top"
         android:text="@string/button_confirm" />
 
 

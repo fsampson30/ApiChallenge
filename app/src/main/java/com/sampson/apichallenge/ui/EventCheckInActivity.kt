@@ -7,25 +7,27 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.sampson.apichallenge.R
+import com.sampson.apichallenge.databinding.ActivityEventCheckInBinding
 
 class EventCheckInActivity : AppCompatActivity() {
+
+    lateinit var binding : ActivityEventCheckInBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_event_check_in)
+        binding = ActivityEventCheckInBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val txtPersonName: TextView = findViewById(R.id.txtCheckInActivityName)
-        val txtPersonEmail: TextView = findViewById(R.id.txtCheckInActivityEmail)
-        val btnConfirm: Button = findViewById(R.id.btnCheckInActivityConfirm)
-
-        btnConfirm.setOnClickListener {
-            if (txtPersonName.text.isEmpty() or txtPersonEmail.text.isEmpty()){
-                txtPersonName.error = getString(R.string.error_message)
-                txtPersonEmail.error = getString(R.string.error_message)
+        binding.btnCheckInActivityConfirm.setOnClickListener {
+            if (binding.txtCheckInActivityName.text.isEmpty() or binding.txtCheckInActivityEmail.text.isEmpty()){
+                binding.txtCheckInActivityName.error = getString(R.string.error_message)
+                binding.txtCheckInActivityEmail.error = getString(R.string.error_message)
             } else {
                 val replyIntent = Intent()
                 replyIntent.apply {
-                    putExtra("person_name",txtPersonName.text)
-                    putExtra("person_email", txtPersonEmail.text)
+                    putExtra("person_name",binding.txtCheckInActivityName.text)
+                    putExtra("person_email", binding.txtCheckInActivityEmail.text)
                 }
                 setResult(Activity.RESULT_OK,replyIntent)
                 finish()

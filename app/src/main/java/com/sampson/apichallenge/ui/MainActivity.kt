@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sampson.apichallenge.R
 import com.sampson.apichallenge.adapter.EventsAdapter
 import com.sampson.apichallenge.controller.EventsApplication
+import com.sampson.apichallenge.databinding.ActivityMainBinding
 import com.sampson.apichallenge.model.Events
 import com.sampson.apichallenge.viewmodel.EventViewModel
 import com.sampson.apichallenge.viewmodel.EventsViewModelFactory
@@ -26,15 +27,16 @@ class MainActivity : AppCompatActivity() {
         EventsViewModelFactory((application as EventsApplication).eventsRepository)
     }
 
+    private lateinit var binding: ActivityMainBinding
+
     lateinit var dialog: Dialog
-    lateinit var rvEvents: RecyclerView
     lateinit var eventsAdapter: EventsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        rvEvents = findViewById(R.id.rvEventsMainActivity)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         eventsAdapter = EventsAdapter(baseContext, object : EventsAdapter.EventClickListener{
             override fun onEventClick(event: Events) {
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        rvEvents.adapter = eventsAdapter
+        binding.rvEventsMainActivity.adapter = eventsAdapter
 
         dialog = Dialog(this).apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)

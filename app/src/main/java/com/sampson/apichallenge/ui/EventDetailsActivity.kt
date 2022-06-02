@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.sampson.apichallenge.R
 import com.sampson.apichallenge.controller.EventsApplication
+import com.sampson.apichallenge.databinding.ActivityEventDetailsBinding
 import com.sampson.apichallenge.model.CheckIn
 import com.sampson.apichallenge.model.Events
 import com.sampson.apichallenge.viewmodel.EventViewModel
@@ -25,27 +26,24 @@ class EventDetailsActivity : AppCompatActivity() {
         EventsViewModelFactory((application as EventsApplication).eventsRepository)
     }
 
+    private lateinit var binding: ActivityEventDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_event_details)
-
-        val imgEvent: ImageView = findViewById(R.id.imgDetailsActivity)
-        val txtTitle: TextView = findViewById(R.id.txtEventDetailsTitle)
-        val txtDescription: TextView = findViewById(R.id.txtEventDetailsDescription)
-        val txtPrice: TextView = findViewById(R.id.txtEventDetailsPrice)
-        val txtLocation: TextView = findViewById(R.id.txtEventDetailsLocation)
-        val fabCheckEvent: FloatingActionButton = findViewById(R.id.fabCheckEvent)
+        binding = ActivityEventDetailsBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         val event = intent.getParcelableExtra<Events>("event")
 
-        txtTitle.text = event?.title
-        txtDescription.text = event?.description
-        txtPrice.text = getString(R.string.price) + "${event?.price.toString()}"
+        binding.txtEventDetailsTitle.text = event?.title
+        binding.txtEventDetailsDescription.text = event?.description
+        binding.txtEventDetailsPrice.text = getString(R.string.price) + "${event?.price.toString()}"
 
         Picasso.get().load(event?.image).fetch()
-        Picasso.get().load(event?.image).placeholder(R.mipmap.ic_launcher).into(imgEvent)
+        Picasso.get().load(event?.image).placeholder(R.mipmap.ic_launcher).into(binding.imgDetailsActivity)
 
-        txtLocation.setOnClickListener {
+        binding.txtEventDetailsLocation.setOnClickListener {
             val intentUri = Uri.parse("geo:${event?.latitude},${event?.longitude}")
             val mapIntent = Intent(Intent.ACTION_VIEW, intentUri).apply {
                 setPackage(getString(R.string.maps_package))
@@ -64,7 +62,7 @@ class EventDetailsActivity : AppCompatActivity() {
             }
         }
 
-        fabCheckEvent.setOnClickListener {
+        binding.fabCheckEvent.setOnClickListener {
             val intent = Intent(baseContext, EventCheckInActivity::class.java)
             register.launch(intent)
         }

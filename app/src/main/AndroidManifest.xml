@@ -18,11 +18,6 @@
             android:authorities="${applicationId}.androidx-startup"
             tools:node="remove" />
 
-        <provider
-            android:name="com.squareup.picasso.PicassoProvider"
-            android:authorities="${applicationId}.androidx-startup"
-            tools:node="remove" />
-
         <activity
             android:label="@string/label_event_checkin_activity"
             android:name=".ui.EventCheckInActivity"
